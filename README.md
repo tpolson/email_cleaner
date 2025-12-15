@@ -82,7 +82,34 @@ More info: https://support.google.com/accounts/answer/185833
 
 ## Usage
 
-### Scan Emails (Preview Only)
+### Web UI
+
+The easiest way to use Email Cleaner is through the web interface:
+
+```bash
+# Start the web UI
+email-cleaner-ui
+
+# Or with options
+email-cleaner-ui --host 0.0.0.0 --port 8080
+```
+
+Then open http://localhost:5000 in your browser. The web UI allows you to:
+
+- Enter your email credentials directly (no `.env` file needed)
+- Test the connection before scanning
+- Select which folder to scan
+- View all emails with junk classification
+- Select specific emails to delete
+- Preview deletions before confirming
+
+![Web UI Screenshot](docs/screenshot.png)
+
+### Command Line Interface
+
+For automation and scripting, use the CLI:
+
+#### Scan Emails (Preview Only)
 
 ```bash
 # Scan your inbox
@@ -170,9 +197,12 @@ email_cleaner/
 │   ├── models/
 │   │   ├── email.py         # Email data model
 │   │   └── classification.py # Classification results
-│   └── services/
-│       ├── imap_client.py   # IMAP email client
-│       └── junk_classifier.py # Classification logic
+│   ├── services/
+│   │   ├── imap_client.py   # IMAP email client
+│   │   └── junk_classifier.py # Classification logic
+│   └── web/
+│       ├── app.py           # Flask web application
+│       └── templates/       # HTML templates
 ├── .env.example
 ├── requirements.txt
 ├── pyproject.toml

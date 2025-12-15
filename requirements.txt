@@ -13,5 +13,8 @@ httpx>=0.25.0
 click>=8.1.0
 rich>=13.0.0
 
+# Web UI
+flask>=3.0.0
+
 # Utilities
 python-dateutil>=2.8.0

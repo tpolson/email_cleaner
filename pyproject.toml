@@ -32,6 +32,7 @@ dependencies = [
     "click>=8.1.0",
     "rich>=13.0.0",
     "python-dateutil>=2.8.0",
+    "flask>=3.0.0",
 ]
 
 [project.optional-dependencies]
@@ -45,6 +46,7 @@ dev = [
 
 [project.scripts]
 email-cleaner = "email_cleaner.main:main"
+email-cleaner-ui = "email_cleaner.web:run_server"
 
 [project.urls]
 Homepage = "https://github.com/example/email-cleaner"
