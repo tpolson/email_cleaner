@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "email-cleaner"
+version = "0.1.0"
+description = "An agent to identify and clean junk emails"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Email Cleaner Team"}
+]
+keywords = ["email", "spam", "junk", "cleaner", "agent"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Email :: Filters",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "imapclient>=2.3.1",
+    "email-validator>=2.0.0",
+    "httpx>=0.25.0",
+    "click>=8.1.0",
+    "rich>=13.0.0",
+    "python-dateutil>=2.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+email-cleaner = "email_cleaner.main:main"
+
+[project.urls]
+Homepage = "https://github.com/example/email-cleaner"
+Documentation = "https://github.com/example/email-cleaner#readme"
+Repository = "https://github.com/example/email-cleaner"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
